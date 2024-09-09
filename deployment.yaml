@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: split-wise
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: split-wise
+  template:
+    metadata:
+      labels:
+        app: split-wise
+    spec:
+      containers:
+      - name: split-wise
+        image: gcr.io/storied-depot-418321/split_wise_backend
+        ports:
+        - containerPort: 8080
